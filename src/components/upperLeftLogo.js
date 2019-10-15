@@ -31,13 +31,12 @@ const Container = styled.div`
 		border-color: hsl(228, 53%, 34%);
 		position: absolute;
 		bottom: 0;
-		left: -1em;
-		width: 33em;
+		left: -0em;
+		width: 100%;
 		height: 2px;
 		border-bottom-style: dashed;
 	}
 `;
-
 
 const ButtonContainer = styled.div`
 	display: flex;
@@ -53,45 +52,6 @@ const ContainerMobile = styled.div`
 	animation: ${fadeIn} 1s linear;
 `;
 
-const LogoGridStyle = styled.div`
-	position: absolute;
-	top: 14em;
-	left: 0;
-	right: 0;
-	margin-left: auto;
-	margin-right: auto;
-	width: 60%;
-	opacity: 1;
-	z-index: -1;
-`;
-
-const LogoGridStyleMobile = styled.div`
-	position: absolute;
-	top: 12em;
-	left: 0;
-	right: 0;
-	margin-left: auto;
-	margin-right: auto;
-	width: 100%;
-	opacity: 1;
-	z-index: -1;
-`;
-
-const LogoOnlyStyle = styled.div`
-	display: inline-block;
-	width: 30%;
-	justify-content: center;
-	fill-opacity: 1;
-	z-index: 2;
-`;
-
-const LogoOnlyStyleMobile = styled.div`
-	display: inline-block;
-	width: 60%;
-	justify-content: center;
-	fill-opacity: 1;
-	z-index: 2;
-`;
 
 const LogoVandyHacksTextStyle = styled.div`
 	width: 30em;
@@ -113,24 +73,6 @@ const LogoVandyHacksTextStyleMobile = styled.div`
 	fill: white;
 	fill-opacity: 1;
 	z-index: 2;
-`;
-
-const LocationDateTextStyle = styled.div`
-	width: 20em;
-	margin: 0.6em auto;
-	left: 0;
-	right: 0;
-	margin-left: auto;
-	margin-right: auto;
-`;
-
-const LocationDateTextStyleMobile = styled.div`
-	width: auto;
-	margin: 0.6em auto;
-	left: 0;
-	right: 0;
-	margin-left: auto;
-	margin-right: auto;
 `;
 
 const StyledButton = styled.button`
@@ -181,17 +123,9 @@ const UpperLeft = () => {
 	} else
 		return (
 			<Container>
-				{/* <LogoOnlyStyle>
-					<LogoOnly />
-				</LogoOnlyStyle> */}
-
 				<LogoVandyHacksTextStyle>
 					<LogoVandyHacksText />
 				</LogoVandyHacksTextStyle>
-				{/* 
-				<LocationDateTextStyle>
-					<LocationDateText />
-				</LocationDateTextStyle> */}
 				<ButtonContainer>
 					<StyledButton onClick={() => (window.location = 'https://apply.vandyhacks.org')}>
 						Hacker Guide
@@ -201,11 +135,6 @@ const UpperLeft = () => {
 					</StyledButton>
 					<SocialMedias />
 				</ButtonContainer>
-
-				{/* 
-				<LogoGridStyle className="fadeIn">
-					<Grid />
-				</LogoGridStyle> */}
 			</Container>
 		);
 };

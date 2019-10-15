@@ -46,11 +46,6 @@ const IndexPage = () => {
 			<Container>
 				<SEO />
 				<isMobileContext.Provider value={isMobile}>
-					{/* <BigLogoWithGridAnimated />
-					<WelcomeAnimated />
-					<FAQAnimated />
-					<ScheduleAnimated />
-					<SponsorBoxAnimated /> */}
 					<Dayof />
 				</isMobileContext.Provider>
 				{/* <a

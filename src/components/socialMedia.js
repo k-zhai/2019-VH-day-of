@@ -66,15 +66,14 @@ const SocialIcons = styled.div`
 `;
 
 const changeTheme = () => {
-    if (typeof document !== ‘undefined’) {
-        console.log(`Location: ${window.location.href}`);
-      }
-	if (!isInvert) {
-		document.body.style = 'background: black; filter: invert(95%);';
-		isInvert = true;
-	} else {
-		document.body.style = 'background: white; filter: invert(0%)';
-		isInvert = false;
+	if (typeof document !== `undefined`) {
+		if (!isInvert) {
+			document.body.style = 'background: black; filter: invert(95%);';
+			isInvert = true;
+		} else {
+			document.body.style = 'background: white; filter: invert(0%)';
+			isInvert = false;
+		}
 	}
 };
 
