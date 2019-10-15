@@ -1,5 +1,5 @@
-import React from 'react';
-import styled from 'styled-components';
+import React, { useContext } from 'react';
+import styled, { keyframes } from 'styled-components';
 
 import InViewMonitor from 'react-inview-monitor';
 import MtSvgLines from 'react-mt-svg-lines';
@@ -8,11 +8,36 @@ import LogoOnly from '../images/logoOnly.svg';
 import LogoVandyHacksText from '../images/textVandyHacks.svg';
 import Grid from '../images/gridLogo.svg';
 import LocationDateText from '../images/locationDateText.svg';
+<<<<<<< HEAD
+=======
+import isMobileContext from './isMobileContext';
+
+const fadeIn = keyframes`
+	from { 
+		opacity: 0;
+	}
+	to { 
+		opacity: 1;
+	}
+`;
+
+const Container = styled.div`
+	position: relative;
+	width: 76%;
+	text-align: center;
+	margin: 10em auto;
+	min-height: calc(100vh - 10em);
+	animation: ${fadeIn} 1s linear;
+`;
+>>>>>>> v1
 
 const ContainerMobile = styled.div`
+	position: relative;
 	width: 100%;
 	text-align: center;
 	margin-top: 2em;
+	min-height: calc(101vh - 10em);
+	animation: ${fadeIn} 1s linear;
 `;
 
 const Container = styled.div`
@@ -103,6 +128,35 @@ const LocationDateTextStyle = styled.div`
 	margin-right: auto;
 `;
 
+const ApplyButton = styled.button`
+	margin: 2.5em auto;
+	padding: 0.5em 2em;
+	border: 3px solid hsl(228, 53%, 34%);
+	border-radius: 6px;
+	background: none;
+	color: #293c85;
+	font-weight: 500;
+	transition: all 0.25s linear;
+
+	user-select: none;
+
+	&:hover,
+	&:focus {
+		background-color: hsl(228, 53%, 34%);
+		color: white;
+		cursor: pointer;
+	}
+
+	outline: none;
+	&::-moz-focus-inner {
+		border: 0;
+	}
+`;
+
+const ApplyButtonMobile = styled(ApplyButton)`
+	margin: 1em auto;
+`;
+
 const ScrollAnimateInLineSvg = ({ SvgElement }) => (
 	<InViewMonitor
 		classNameNotInView="vis-hidden"
@@ -115,6 +169,7 @@ const ScrollAnimateInLineSvg = ({ SvgElement }) => (
 	</InViewMonitor>
 );
 
+<<<<<<< HEAD
 const BigLogoWithGrid = () => (
 	<Container>
 		<LogoOnlyStyle>
@@ -140,6 +195,59 @@ const BigLogoWithGridMobile = () => (
 		<LogoOnlyStyleMobile>
 			<LogoOnly />
 		</LogoOnlyStyleMobile>
+=======
+const BigLogoWithGrid = () => {
+	const isMobile = useContext(isMobileContext);
+	if (isMobile) {
+		return (
+			<ContainerMobile>
+				<LogoOnlyStyleMobile>
+					<LogoOnly />
+				</LogoOnlyStyleMobile>
+
+				<LogoVandyHacksTextStyleMobile>
+					<LogoVandyHacksText />
+				</LogoVandyHacksTextStyleMobile>
+
+				<LocationDateTextStyleMobile>
+					<LocationDateText />
+				</LocationDateTextStyleMobile>
+
+				<ApplyButtonMobile onClick={() => (window.location = 'https://apply.vandyhacks.org')}>
+					Apply
+				</ApplyButtonMobile>
+
+				<LogoGridStyleMobile className="fadeIn">
+					<Grid />
+				</LogoGridStyleMobile>
+			</ContainerMobile>
+		);
+	} else
+		return (
+			<Container>
+				<LogoOnlyStyle>
+					<LogoOnly />
+				</LogoOnlyStyle>
+
+				<LogoVandyHacksTextStyle>
+					<LogoVandyHacksText />
+				</LogoVandyHacksTextStyle>
+
+				<LocationDateTextStyle>
+					<LocationDateText />
+				</LocationDateTextStyle>
+
+				<ApplyButton onClick={() => (window.location = 'https://apply.vandyhacks.org')}>
+					Apply
+				</ApplyButton>
+
+				<LogoGridStyle className="fadeIn">
+					<Grid />
+				</LogoGridStyle>
+			</Container>
+		);
+};
+>>>>>>> v1
 
 		<LogoVandyHacksTextStyleMobile>
 			<LogoVandyHacksText />

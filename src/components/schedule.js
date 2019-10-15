@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import styled from 'styled-components';
 
 import InViewMonitor from 'react-inview-monitor';
-import useWindowWidth from './utils/useWindowWidth';
+import isMobileContext from './isMobileContext';
 
 import ScheduleTitle from '../images/scheduleText.svg';
 import Box from '../images/stationeryBox.svg';
@@ -50,7 +50,7 @@ const ScheduleLogoStyle = styled.div`
 const ScheduleLogoMobileStyle = styled.div`
 	width: 90%;
 	position: relative;
-	left 10%;
+	left: 10%;
 `;
 
 const BoxStyle = styled.div`
@@ -158,42 +158,48 @@ const scheduleData = [
 		date: 'Nov1',
 		day: 'Fri',
 		schedule: [
-			{ time: '5:30p', event: 'check-in' },
-			{ time: '6:00p', event: 'dinner' },
-			{ time: '8:30p', event: 'open ceremony' },
-			{ time: '10:00p', event: 'Hacking begins' },
-			{ time: '10:00p', event: 'pitch session' },
-			{ time: '10:00p', event: 'git tech talk' },
-			{ time: '10:30p', event: 'beginner session' },
-			{ time: '11:00p', event: 'beginner tech talk' },
+			{ time: '5:30p', event: 'Check-in Begins' },
+			{ time: '6:00p', event: 'Dinner' },
+			{ time: '8:30p', event: 'Opening Ceremony' },
+			{ time: '9:30p', event: 'Team Finding' },
+			{ time: '9:30p', event: 'Mentor Search' },
+			{ time: '9:30p', event: 'Pitch Session' },
+			{ time: '10:00p', event: 'Hacking Begins' },
+			{ time: '10:30p', event: 'Beginner Workshops (until 3am)' },
+			{ time: '11:59p', event: 'Midnight Snack' },
 		],
 	},
 	{
 		date: 'Nov2',
 		day: 'Sat',
 		schedule: [
-			{ time: '5:30p', event: 'Sleepppp' },
-			{ time: '5:30p', event: 'Eat' },
-			{ time: '5:30p', event: 'Drink' },
-			{ time: '5:30p', event: 'Sleepppp' },
-			{ time: '5:30p', event: 'Eat' },
-			{ time: '5:30p', event: 'Drink' },
-			{ time: '5:30p', event: 'Sleepppp' },
-			{ time: '5:30p', event: 'Eat' },
-			{ time: '5:30p', event: 'Drink' },
+			{ time: '8:00a', event: 'Breakfast' },
+			{ time: '8:30a', event: 'Morning Walk' },
+			{ time: '8:30a', event: 'Sponsor Workshops (All Day)' },
+			{ time: '10:00a', event: 'Typing Competition' },
+			{ time: '11:00a', event: 'Network with Asurion' },
+			{ time: '12:30p', event: 'Lunch' },
+			{ time: '3:00p', event: 'Zumba' },
+			{ time: '6:00p', event: 'Dinner' },
+			{ time: '9:00p', event: 'Hand Spa' },
+			{ time: '10:00p', event: 'Lightning Talks' },
+			{ time: '11:00p', event: 'Women in Computing Meetup' },
+			{ time: '11:59p', event: 'Midnight Snack' },
 		],
 	},
 	{
 		date: 'Nov3',
 		day: 'Sun',
 		schedule: [
-			{ time: '5:30p', event: 'Sleepppp' },
-			{ time: '5:30p', event: 'Sleepppp' },
-			{ time: '5:30p', event: 'Sleepppp' },
-			{ time: '5:30p', event: 'Sleepppp' },
-			{ time: '5:30p', event: 'Sleepppp' },
-			{ time: '5:30p', event: 'Sleepppp' },
-			{ time: '5:30p', event: 'Sleepppp' },
+			{ time: '12:00a', event: 'Fireside Chat' },
+			{ time: '1:30a', event: 'Karaoke' },
+			{ time: '8:00a', event: 'Breakfast' },
+			{ time: '9:00a', event: 'Hacking Ends' },
+			{ time: '9:10a', event: '"How to Demo" Workshop' },
+			{ time: '10:00a', event: 'Expo' },
+			{ time: '12:00p', event: 'Lunch' },
+			{ time: '1:30p', event: 'Closing Ceremony' },
+			{ time: '3:30p', event: 'Buses Depart' },
 		],
 	},
 ];
@@ -246,6 +252,7 @@ const ScheduleMobile = () => {
 
 const Schedule = () => {
 	const [curSchedule, setCurSchedule] = useState(scheduleData[0]);
+<<<<<<< HEAD
 
 	// onClick={() => setCurSchedule(...)}
 	// when use {curSchedule}
@@ -294,6 +301,102 @@ const Schedule = () => {
 			</PenStyle>
 		</Container>
 	);
+=======
+	const isMobile = useContext(isMobileContext);
+
+	// onClick={() => setCurSchedule(...)}
+	// when use {curSchedule}
+	if (isMobile) {
+		return (
+			<ContainerMobile>
+				<Box2StyleMobile>
+					<Box2 />
+				</Box2StyleMobile>
+				<BoxStyleMobile>
+					<Box />
+				</BoxStyleMobile>
+				<PenStyleMobile>
+					<Pen />
+				</PenStyleMobile>
+				<ScheduleLogoMobileStyle>
+					<ScheduleTitle />
+				</ScheduleLogoMobileStyle>
+				<ScheduleBodyContainerMobile>
+					<ScheduleBodyTopCol>
+						<DayText style={{ width: '4.2em' }} onClick={() => setCurSchedule(scheduleData[0])}>
+							{curSchedule.date === 'Nov1' ? <FriBar /> : <FriNoBar />}
+						</DayText>
+						<DayText style={{ width: '6em' }} onClick={() => setCurSchedule(scheduleData[1])}>
+							{curSchedule.date === 'Nov2' ? <SatBar /> : <SatNoBar />}
+						</DayText>
+						<DayText style={{ width: '5em' }} onClick={() => setCurSchedule(scheduleData[2])}>
+							{curSchedule.date === 'Nov3' ? <SunBar /> : <SunNoBar />}
+						</DayText>
+					</ScheduleBodyTopCol>
+
+					<ScheduleRightCol>
+						{curSchedule.schedule.map(({ time, event }) => (
+							<div>
+								<ScheduleBodyTimeCol>
+									<TimeText>{time}</TimeText>
+								</ScheduleBodyTimeCol>
+								<ScheduleBodyDescriptionCol>
+									<EventText>{event}</EventText>
+								</ScheduleBodyDescriptionCol>
+							</div>
+						))}
+					</ScheduleRightCol>
+				</ScheduleBodyContainerMobile>
+			</ContainerMobile>
+		);
+	} else {
+		return (
+			<Container>
+				<ScheduleLogoStyle>
+					<ScheduleTitle />
+				</ScheduleLogoStyle>
+
+				<ScheduleBodyContainer>
+					<ScheduleBodyTopCol>
+						<DayText style={{ width: '5.2em' }} onClick={() => setCurSchedule(scheduleData[0])}>
+							{curSchedule.date === 'Nov1' ? <FriBar /> : <FriNoBar />}
+						</DayText>
+						<DayText style={{ width: '7.2em' }} onClick={() => setCurSchedule(scheduleData[1])}>
+							{curSchedule.date === 'Nov2' ? <SatBar /> : <SatNoBar />}
+						</DayText>
+						<DayText style={{ width: '6.2em' }} onClick={() => setCurSchedule(scheduleData[2])}>
+							{curSchedule.date === 'Nov3' ? <SunBar /> : <SunNoBar />}
+						</DayText>
+					</ScheduleBodyTopCol>
+
+					<ScheduleRightCol>
+						{curSchedule.schedule.map(({ time, event }) => (
+							<div key={event}>
+								<ScheduleBodyTimeCol>
+									<TimeText>{time}</TimeText>
+								</ScheduleBodyTimeCol>
+								<ScheduleBodyDescriptionCol>
+									<EventText>{event}</EventText>
+								</ScheduleBodyDescriptionCol>
+							</div>
+						))}
+					</ScheduleRightCol>
+				</ScheduleBodyContainer>
+
+				<BoxStyle>
+					<Box />
+				</BoxStyle>
+
+				<Box2Style>
+					<Box2 />
+				</Box2Style>
+				<PenStyle>
+					<Pen />
+				</PenStyle>
+			</Container>
+		);
+	}
+>>>>>>> v1
 };
 
 const ScheduleAnimated = ({ isMobile }) => (

@@ -624,5 +624,24 @@ pre tt:after {
 }
 .vis-hidden {
 	visibility: hidden;
+<<<<<<< HEAD
   }
   
+=======
+}
+
+html,
+body {
+	max-width: 100vw;
+	max-height: 100vh;
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	overflow-x: hidden;
+	-webkit-overflow-scrolling: touch;
+}
+
+svg {
+	pointer-events: none;
+}
+>>>>>>> v1

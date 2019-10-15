@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import styled from 'styled-components';
+import { isChrome } from 'react-device-detect';
 
 import InViewMonitor from 'react-inview-monitor';
-import useWindowWidth from './utils/useWindowWidth';
+import isMobileContext from './isMobileContext';
 
 import WelcomeTitle from '../images/welcomeText.svg';
 import WelcomeBorder from '../images/welcomeBorder.svg';
@@ -13,8 +14,8 @@ import LowerBar from '../images/faqLowerBar.svg';
 
 const Container = styled.div`
 	width: 100%;
-	margin-top: 15em;
-	margin-botton: 0em;
+	/* margin-top: 15em; */
+	margin-bottom: 0em;
 `;
 
 const WelcomeLogoStyle = styled.div`
@@ -114,12 +115,17 @@ const LowerBarStyle = styled.div`
 
 // place holder for text
 const welcomeText =
+<<<<<<< HEAD
 	'VandyHacks is back this Fall in the Music City – and it’s ready to redesign hackathons.';
+=======
+	'VandyHacks is back this fall in Music City — and it’s ready to redesign hackathons.';
+>>>>>>> v1
 const welcomeBoldPresent = 'Presenting VandyHacks VI: Art Edition.';
 const welcomeTextCont =
 	'From November 1-3, hundreds of talented and creative students from across the nation will come together to learn, collaborate, and create exciting projects with the ambition to';
 const welcomeBoldCode = ' Code a Masterpiece.';
 
+<<<<<<< HEAD
 const WelcomeMobile = () => (
 	<Container>
 		<WelcomeLogoMobileStyle>
@@ -179,6 +185,84 @@ const Welcome = () => (
 );
 
 const WelcomeAnimated = ({ isMobile }) => (
+=======
+const Welcome = () => {
+	const isMobile = useContext(isMobileContext);
+	if (isMobile) {
+		return (
+			<Container>
+				<WelcomeLogoMobileStyle>
+					<WelcomeTitle />
+				</WelcomeLogoMobileStyle>
+
+				<WelcomeBoxMobileStyle>
+					<WelcomeTextMobileStyle>{welcomeText}</WelcomeTextMobileStyle>
+					<WelcomeTextMobileStyle style={{ fontWeight: 'bold', lineHeight: '0', width: '100%' }}>
+						{welcomeBoldPresent}
+					</WelcomeTextMobileStyle>
+					<WelcomeTextMobileStyle>{welcomeTextCont}</WelcomeTextMobileStyle>
+					<WelcomeTextMobileStyle style={{ fontWeight: 'bold', lineHeight: '0' }}>
+						{welcomeBoldCode}
+					</WelcomeTextMobileStyle>
+
+					<LowerBarStyle>
+						<LowerBar />
+					</LowerBarStyle>
+				</WelcomeBoxMobileStyle>
+
+				<Pen3MobileStyle>
+					<Pen3 />
+				</Pen3MobileStyle>
+			</Container>
+		);
+	} else {
+		return (
+			<Container>
+				<WelcomeLogoStyle>
+					<WelcomeTitle />
+				</WelcomeLogoStyle>
+
+				<WelcomeBoxStyle>
+					<WelcomeBorder />
+					<WelcomeTextStyle>{welcomeText}</WelcomeTextStyle>
+					<WelcomeTextStyle
+						style={{
+							fontWeight: 'bold',
+							lineHeight: '0',
+							letterSpacing: !isChrome ? '-0.055em' : 'unset',
+						}}
+					>
+						{welcomeBoldPresent}
+					</WelcomeTextStyle>
+					<WelcomeTextStyle>{welcomeTextCont}</WelcomeTextStyle>
+					<WelcomeTextStyle
+						style={{
+							fontWeight: 'bold',
+							lineHeight: '0',
+							letterSpacing: !isChrome ? '-0.055em' : 'unset',
+						}}
+					>
+						{welcomeBoldCode}
+					</WelcomeTextStyle>
+				</WelcomeBoxStyle>
+
+				<EraserStyle>
+					<Eraser />
+				</EraserStyle>
+				<Pen2Style>
+					<Pen2 />
+				</Pen2Style>
+
+				<Pen3Style>
+					<Pen3 />
+				</Pen3Style>
+			</Container>
+		);
+	}
+};
+
+const WelcomeAnimated = () => (
+>>>>>>> v1
 	<InViewMonitor
 		classNameNotInView="vis-hidden"
 		classNameInView="animated fadeInUp" // fadeInLeft, or fadeInRight
