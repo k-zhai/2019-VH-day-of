@@ -3,22 +3,21 @@ import React, { useState, useCallback, useEffect } from 'react';
 // try build again before i push it
 import styled from 'styled-components';
 
-import BigLogoWithGridAnimated from '../components/bigLogo';
-import WelcomeAnimated from '../components/welcome';
-import FAQAnimated from '../components/faq/faq';
-import ScheduleAnimated from '../components/schedule';
-import SponsorBoxAnimated from '../components/sponsorBox';
+// import BigLogoWithGridAnimated from '../components/bigLogo';
+// import WelcomeAnimated from '../components/welcome';
+// import FAQAnimated from '../components/faq/faq';
+// import ScheduleAnimated from '../components/schedule';
+// import SponsorBoxAnimated from '../components/sponsorBox';
+import Dayof from '../components/dayOf';
 import isMobileContext from '../components/isMobileContext';
-import Footer from '../components/footer';
 import SEO from '../components/seo';
 
 import '../../node_modules/animate.css/animate.min.css';
 import '../css/layout.css';
 
 const Container = styled.div`
-	width: 76%;
-	text-align: center;
-	margin: 10em auto;
+	width: 100%;
+	margin: 1em;
 `;
 
 const IndexPage = () => {
@@ -47,13 +46,14 @@ const IndexPage = () => {
 			<Container>
 				<SEO />
 				<isMobileContext.Provider value={isMobile}>
-					<BigLogoWithGridAnimated />
+					{/* <BigLogoWithGridAnimated />
 					<WelcomeAnimated />
 					<FAQAnimated />
 					<ScheduleAnimated />
-					<SponsorBoxAnimated />
+					<SponsorBoxAnimated /> */}
+					<Dayof />
 				</isMobileContext.Provider>
-				<a
+				{/* <a
 					id="mlh-trust-badge"
 					style={{
 						display: 'block',
@@ -74,9 +74,9 @@ const IndexPage = () => {
 						alt="Major League Hacking 2020 Hackathon Season"
 						style={{ width: '100%' }}
 					/>
-				</a>
+				</a> */}
 			</Container>
-			<Footer />
+			{/* <Footer /> */}
 		</>
 	);
 };
