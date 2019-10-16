@@ -53,7 +53,7 @@ const AnouncementBox = styled.div`
 	margin: 1rem;
 	padding: 1em 3em;
     border-radius: 30px;
-    height: calc(100vh - 30em);
+    min-height: calc(100vh - 30em);
 
     display: flex;
     justify-content: center; /* align horizontal */

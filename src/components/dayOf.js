@@ -38,7 +38,6 @@ const ContainerMobile = styled.div`
 const LeftContainer = styled.div`
 	position: static;
 	width: calc((100vw - 3em) / 2);
-	height: 100%;
 	opacity: 1;
 	float: left;
 `;
