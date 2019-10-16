@@ -3,24 +3,9 @@ import React, { useState, useCallback, useEffect } from 'react';
 // try build again before i push it
 import styled from 'styled-components';
 
-<<<<<<< HEAD
-import BigLogoWithGridAnimated from '../components/bigLogo';
-import WelcomeAnimated from '../components/welcome';
-import FAQAnimated from '../components/faq/faq';
-import ScheduleAnimated from '../components/schedule';
-import SponsorBoxAnimated from '../components/sponsorBox';
-import useWindowWidth from '../components/utils/useWindowWidth.js';
-import InvertButton from '../components/invertButton.js';
-=======
-// import BigLogoWithGridAnimated from '../components/bigLogo';
-// import WelcomeAnimated from '../components/welcome';
-// import FAQAnimated from '../components/faq/faq';
-// import ScheduleAnimated from '../components/schedule';
-// import SponsorBoxAnimated from '../components/sponsorBox';
 import Dayof from '../components/dayOf';
 import isMobileContext from '../components/isMobileContext';
 import SEO from '../components/seo';
->>>>>>> v1
 
 import '../../node_modules/animate.css/animate.min.css';
 import '../css/layout.css';
@@ -31,18 +16,6 @@ const Container = styled.div`
 `;
 
 const IndexPage = () => {
-<<<<<<< HEAD
-	const isMobile = useWindowWidth() <= 768;
-	return (
-		<Container>
-			<BigLogoWithGridAnimated isMobile={isMobile} />
-			<WelcomeAnimated isMobile={isMobile} />
-			<FAQAnimated isMobile={isMobile} />
-			<ScheduleAnimated isMobile={isMobile} />
-			<SponsorBoxAnimated isMobile={isMobile} />
-			<InvertButton />
-		</Container>
-=======
 	const [isMobile, setIsMobile] = useState(undefined);
 
 	const handleWindowResize = useCallback(() => {
@@ -93,9 +66,7 @@ const IndexPage = () => {
 					/>
 				</a> */}
 			</Container>
-			{/* <Footer /> */}
 		</>
->>>>>>> v1
 	);
 };
 

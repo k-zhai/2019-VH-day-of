@@ -8,8 +8,6 @@ import LogoOnly from '../images/logoOnly.svg';
 import LogoVandyHacksText from '../images/textVandyHacks.svg';
 import Grid from '../images/gridLogo.svg';
 import LocationDateText from '../images/locationDateText.svg';
-<<<<<<< HEAD
-=======
 import isMobileContext from './isMobileContext';
 
 const fadeIn = keyframes`
@@ -29,7 +27,6 @@ const Container = styled.div`
 	min-height: calc(100vh - 10em);
 	animation: ${fadeIn} 1s linear;
 `;
->>>>>>> v1
 
 const ContainerMobile = styled.div`
 	position: relative;
@@ -169,33 +166,6 @@ const ScrollAnimateInLineSvg = ({ SvgElement }) => (
 	</InViewMonitor>
 );
 
-<<<<<<< HEAD
-const BigLogoWithGrid = () => (
-	<Container>
-		<LogoOnlyStyle>
-			<LogoOnly />
-		</LogoOnlyStyle>
-
-		<LogoVandyHacksTextStyle>
-			<LogoVandyHacksText />
-		</LogoVandyHacksTextStyle>
-
-		<LocationDateTextStyle>
-			<LocationDateText />
-		</LocationDateTextStyle>
-
-		<LogoGridStyle>
-			<Grid />
-		</LogoGridStyle>
-	</Container>
-);
-
-const BigLogoWithGridMobile = () => (
-	<ContainerMobile>
-		<LogoOnlyStyleMobile>
-			<LogoOnly />
-		</LogoOnlyStyleMobile>
-=======
 const BigLogoWithGrid = () => {
 	const isMobile = useContext(isMobileContext);
 	if (isMobile) {
@@ -247,7 +217,6 @@ const BigLogoWithGrid = () => {
 			</Container>
 		);
 };
->>>>>>> v1
 
 		<LogoVandyHacksTextStyleMobile>
 			<LogoVandyHacksText />

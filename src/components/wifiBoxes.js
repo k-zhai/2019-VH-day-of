@@ -37,9 +37,13 @@ const TextBox = styled.div`
 	font-size: 0.8em;
 	color: #fff;
 	background: hsl(228, 53%, 34%);
-	margin: 1rem;
+	margin: 1rem 1rem;
 	padding: 1em 3em;
 	border-radius: 30px;
+
+	display: flex;
+	justify-content: center; /* align horizontal */
+	align-items: center; /* align vertical */
 `;
 
 const AnouncementBox = styled.div`
@@ -76,11 +80,11 @@ const Boxes = () => {
 			<Container>
 				<ButtonContainer>
 					<BoxTitleContainer>
-						Time Remaining
-						<TextBox style={{ fontSize: '1.5em' }}>12: 00: 00</TextBox>
+						<h4>Time Remaining</h4>
+						<TextBox style={{ fontSize: '1.6em' }}>12: 00: 00</TextBox>
 					</BoxTitleContainer>
 					<BoxTitleContainer>
-						Wifi Login
+						<h4>Wifi Login</h4>
 						<TextBox>
 							Username: 1234
 							<br />
@@ -89,7 +93,7 @@ const Boxes = () => {
 					</BoxTitleContainer>
 				</ButtonContainer>
 				<BoxTitleContainer>
-					<em>Anouncement</em>
+					<h4>Anouncement</h4>
 					<AnouncementBox>
 						All that is gold does not glitter, <br /> Not all those who wander are lost; <br />
 						The old that is strong does not wither, <br />

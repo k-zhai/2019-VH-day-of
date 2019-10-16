@@ -32,7 +32,7 @@ const Container = styled.div`
 		position: absolute;
 		bottom: 0;
 		left: -0em;
-		width: 100%;
+		width: 97%;
 		height: 2px;
 		border-bottom-style: dashed;
 	}
@@ -110,7 +110,7 @@ const ScrollAnimateInLineSvg = ({ SvgElement }) => (
 		classNameInView=""
 		childPropsInView={{ animate: true }}
 	>
-		<MtSvgLines duration={2500} fade>
+		<MtSvgLines duration={3500} fade>
 			{SvgElement}
 		</MtSvgLines>
 	</InViewMonitor>

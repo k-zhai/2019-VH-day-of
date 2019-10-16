@@ -3,8 +3,11 @@ import styled, { keyframes } from 'styled-components';
 
 import UpperLeftAnimated from '../components/upperLeftLogo';
 import BoxesAnimated from '../components/wifiBoxes';
+import ScheduleAnimated from '../components/schedule';
+import LinkAnimated from '../components/importantLink';
 import isMobileContext from './isMobileContext';
-import AnnouncementAnimated from '../components/announcement';
+import { Link } from 'gatsby';
+ 
 
 const fadeIn = keyframes`
 	from { 
@@ -34,7 +37,7 @@ const ContainerMobile = styled.div`
 
 const LeftContainer = styled.div`
 	position: static;
-	width: 50%;
+	width: calc((100vw - 3em) / 2);
 	height: 100%;
 	opacity: 1;
 	float: left;
@@ -50,10 +53,10 @@ const DayOf = () => {
 				<LeftContainer>
 					<UpperLeftAnimated />
 					<BoxesAnimated />
-					{/* <AnnouncementAnimated /> */}
 				</LeftContainer>
 				<LeftContainer>
-					<BoxesAnimated /> 
+					<ScheduleAnimated />
+					<LinkAnimated /> 
 				</LeftContainer>
 			</Container>
 		);

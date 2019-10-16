@@ -43,9 +43,6 @@ const SponsorTitleStyleMobile = styled.div`
 const SponsorContainer = styled.div`
 	padding: ${({ isMobile }) => (isMobile ? '10px' : '2em')};
 	width: 100%;
-<<<<<<< HEAD
-	margin-top: -0.5em;
-=======
 	display: grid;
 	grid-template-columns: 1fr 1fr;
 	grid-auto-flow: row;
@@ -74,7 +71,6 @@ const SponsorContainer = styled.div`
 		margin: 0;
 		object-fit: contain;
 	}
->>>>>>> v1
 `;
 
 const LogoGridStyleMobile = styled.div`
@@ -87,30 +83,6 @@ const LogoGridStyleMobile = styled.div`
 	opacity: 1;
 `;
 
-<<<<<<< HEAD
-const SponsorBoxMobile = () => (
-	<Container>
-		<SponsorTitleStyleMobile>
-			<SponsorTitle />
-		</SponsorTitleStyleMobile>
-		<LogoGridStyleMobile>
-			<Grid />
-		</LogoGridStyleMobile>
-	</Container>
-);
-
-// see https://github.com/VandyHacks/VHF2018-website/blob/master/components/Sponsors.vue
-const SponsorBox = () => (
-	<Container>
-		<SponsorTitleStyle>
-			<SponsorTitle />
-		</SponsorTitleStyle>
-		<SponsorBorderStyle>
-			<SponsorBorder />
-		</SponsorBorderStyle>
-	</Container>
-);
-=======
 const sponsors = {
 	headline: [
 		{ name: 'Asurion', link: 'https://www.asurion.com/', Logo: Asurion },
@@ -237,7 +209,6 @@ const SponsorBox = () => {
 			</Container>
 		);
 };
->>>>>>> v1
 
 const SponsorBoxAnimated = ({ isMobile }) => (
 	<InViewMonitor

@@ -115,77 +115,12 @@ const LowerBarStyle = styled.div`
 
 // place holder for text
 const welcomeText =
-<<<<<<< HEAD
-	'VandyHacks is back this Fall in the Music City – and it’s ready to redesign hackathons.';
-=======
 	'VandyHacks is back this fall in Music City — and it’s ready to redesign hackathons.';
->>>>>>> v1
 const welcomeBoldPresent = 'Presenting VandyHacks VI: Art Edition.';
 const welcomeTextCont =
 	'From November 1-3, hundreds of talented and creative students from across the nation will come together to learn, collaborate, and create exciting projects with the ambition to';
 const welcomeBoldCode = ' Code a Masterpiece.';
 
-<<<<<<< HEAD
-const WelcomeMobile = () => (
-	<Container>
-		<WelcomeLogoMobileStyle>
-			<WelcomeTitle />
-		</WelcomeLogoMobileStyle>
-
-		<WelcomeBoxMobileStyle>
-			<WelcomeTextMobileStyle>{welcomeText}</WelcomeTextMobileStyle>
-			<WelcomeTextMobileStyle style={{ fontWeight: 'bold', lineHeight: '0', width: '100%' }}>
-				{welcomeBoldPresent}
-			</WelcomeTextMobileStyle>
-			<WelcomeTextMobileStyle>{welcomeTextCont}</WelcomeTextMobileStyle>
-			<WelcomeTextMobileStyle style={{ fontWeight: 'bold', lineHeight: '0' }}>
-				{welcomeBoldCode}
-			</WelcomeTextMobileStyle>
-
-			<LowerBarStyle>
-				<LowerBar />
-			</LowerBarStyle>
-		</WelcomeBoxMobileStyle>
-
-		<Pen3MobileStyle>
-			<Pen3 />
-		</Pen3MobileStyle>
-	</Container>
-);
-
-const Welcome = () => (
-	<Container>
-		<WelcomeLogoStyle>
-			<WelcomeTitle />
-		</WelcomeLogoStyle>
-
-		<WelcomeBoxStyle>
-			<WelcomeBorder />
-			<WelcomeTextStyle>{welcomeText}</WelcomeTextStyle>
-			<WelcomeTextStyle style={{ fontWeight: 'bold', lineHeight: '0' }}>
-				{welcomeBoldPresent}
-			</WelcomeTextStyle>
-			<WelcomeTextStyle>{welcomeTextCont}</WelcomeTextStyle>
-			<WelcomeTextStyle style={{ fontWeight: 'bold', lineHeight: '0' }}>
-				{welcomeBoldCode}
-			</WelcomeTextStyle>
-		</WelcomeBoxStyle>
-
-		<EraserStyle>
-			<Eraser />
-		</EraserStyle>
-		<Pen2Style>
-			<Pen2 />
-		</Pen2Style>
-
-		<Pen3Style>
-			<Pen3 />
-		</Pen3Style>
-	</Container>
-);
-
-const WelcomeAnimated = ({ isMobile }) => (
-=======
 const Welcome = () => {
 	const isMobile = useContext(isMobileContext);
 	if (isMobile) {
@@ -262,7 +197,6 @@ const Welcome = () => {
 };
 
 const WelcomeAnimated = () => (
->>>>>>> v1
 	<InViewMonitor
 		classNameNotInView="vis-hidden"
 		classNameInView="animated fadeInUp" // fadeInLeft, or fadeInRight
