@@ -20,6 +20,7 @@ const fadeIn = keyframes`
 
 const Container = styled.div`
 	margin: 1em;
+	margin-bottom: 0;
 	position: relative;
 	width: 100%;
 	justify-content: left;

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import styled, { keyframes } from 'styled-components';
 
 import InViewMonitor from 'react-inview-monitor';
@@ -6,6 +6,16 @@ import InViewMonitor from 'react-inview-monitor';
 import '../../node_modules/animate.css/animate.min.css';
 
 import isMobileContext from './isMobileContext';
+import moment from 'moment';
+import { getEvents } from './getEvents';
+
+import { Calendar, momentLocalizer } from 'react-big-calendar';
+
+import 'react-big-calendar/lib/css/react-big-calendar.css';
+// a localizer for BigCalendar
+
+// this weird syntax is just a shorthand way of specifying loaders
+// require('style-loader!css-loader!react-big-calendar/lib/css/react-big-calendar.css');
 
 const fadeIn = keyframes`
 	from { 
@@ -18,6 +28,7 @@ const fadeIn = keyframes`
 
 const Container = styled.div`
 	margin: 1em;
+	margin-bottom: 2.0em;
 	position: relative;
 	width: 100%;
 	justify-content: left;
@@ -42,7 +53,7 @@ const TextBox = styled.div`
 	border-radius: 30px;
 `;
 
-// can set opcaity 
+// can set opcaity
 const AnouncementBox = styled.div`
 	font-size: 0.8em;
 	color: #fff;
@@ -68,7 +79,33 @@ const BoxTitleContainer = styled.div`
 	text-align: center;
 `;
 
+const localizer = momentLocalizer(moment);
+let events = [];
+
+const ColoredDateCellWrapper = ({ children }) =>
+	React.cloneElement(React.Children.only(children), {
+		style: {
+			backgroundColor: 'hsl(228, 53%, 34%)',
+		},
+	});
+
+// let MyCalendar = ({events}) => (
+
+// );
+
 const ScheduleBox = () => {
+	// getEvents((events) => {
+	// 	this.setState({events})
+	//   })
+	const [events, setEvents] = useState([]);
+	useEffect(() => {
+		// Update the document title using the browser API
+		getEvents(events => setEvents(events));
+		// setEvents(getEvents);
+		// console.log(getEvents);
+		
+	});
+
 	const isMobile = useContext(isMobileContext);
 	if (isMobile) {
 		return null;
@@ -77,7 +114,7 @@ const ScheduleBox = () => {
 			<Container>
 				<BoxTitleContainer>
 					<h4>Schedule</h4>
-					<AnouncementBox>
+					{/* <AnouncementBox>
 						All that is gold does not glitter, <br /> Not all those who wander are lost; <br />
 						The old that is strong does not wither, <br />
 						Deep roots are not reached by the frost. <br />
@@ -87,13 +124,26 @@ const ScheduleBox = () => {
 						<br />
 						Renewed shall be blade that was broken, <br />
 						The crownless again shall be king.
-					</AnouncementBox>
+					</AnouncementBox> */}
 				</BoxTitleContainer>
 
-				{/* 
-				<LogoGridStyle className="fadeIn">
-					<Grid />
-				</LogoGridStyle> */}
+				<div style={{ height: '380px' }}>
+					<Calendar
+						events={events}
+						// views={allViews}
+						// step={60}
+						// step={30}
+						defaultView="agenda"
+						// views={['week', 'day', 'agenda']}
+						showMultiDayTimes
+						// max={dates.add(dates.endOf(new Date(2015, 17, 1), 'day'), -1, 'hours')}
+						// defaultDate={new Date(2015, 3, 1)}
+						components={{
+							timeSlotWrapper: ColoredDateCellWrapper,
+						}}
+						localizer={localizer}
+					/>
+				</div>
 			</Container>
 		);
 };
