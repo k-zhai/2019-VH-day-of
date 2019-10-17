@@ -15,7 +15,7 @@ const Container = styled.div`
 	margin: 1em;
 `;
 
-const IndexPage = () => {
+const IndexPage = ({ pageContext: { events } })  => {
 	const [isMobile, setIsMobile] = useState(undefined);
 
 	const handleWindowResize = useCallback(() => {
@@ -41,7 +41,7 @@ const IndexPage = () => {
 			<Container>
 				<SEO />
 				<isMobileContext.Provider value={isMobile}>
-					<Dayof />
+					<Dayof events={events}/>
 				</isMobileContext.Provider>
 				{/* <a
 					id="mlh-trust-badge"

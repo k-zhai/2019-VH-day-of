@@ -6,6 +6,7 @@ import InViewMonitor from 'react-inview-monitor';
 import '../../node_modules/animate.css/animate.min.css';
 
 import isMobileContext from './isMobileContext';
+import Countdown from 'react-countdown-now';
 
 const fadeIn = keyframes`
 	from { 
@@ -52,12 +53,12 @@ const AnouncementBox = styled.div`
 	background: hsl(228, 53%, 34%);
 	margin: 1rem;
 	padding: 1em 3em;
-    border-radius: 30px;
-    min-height: calc(100vh - 30em);
+	border-radius: 30px;
+	min-height: calc(100vh - 30em);
 
-    display: flex;
-    justify-content: center; /* align horizontal */
-    align-items: center; /* align vertical */
+	display: flex;
+	justify-content: center; /* align horizontal */
+	align-items: center; /* align vertical */
 `;
 
 // 	justify-content: space-between;
@@ -71,6 +72,8 @@ const BoxTitleContainer = styled.div`
 	text-align: center;
 `;
 
+const endEventTime = new Date('2019-11-03T23:59:59.999Z');
+
 const Boxes = () => {
 	const isMobile = useContext(isMobileContext);
 	if (isMobile) {
@@ -81,7 +84,9 @@ const Boxes = () => {
 				<ButtonContainer>
 					<BoxTitleContainer>
 						<h4>Time Remaining</h4>
-						<TextBox style={{ fontSize: '1.6em' }}>12: 00: 00</TextBox>
+						<TextBox style={{ fontSize: '1.6em', maxWidth: '10em' }}>
+							<Countdown date={endEventTime} />
+						</TextBox>
 					</BoxTitleContainer>
 					<BoxTitleContainer>
 						<h4>Wifi Login</h4>
@@ -97,9 +102,11 @@ const Boxes = () => {
 					<AnouncementBox>
 						All that is gold does not glitter, <br /> Not all those who wander are lost; <br />
 						The old that is strong does not wither, <br />
-						Deep roots are not reached by the frost. <br /><br/>
+						Deep roots are not reached by the frost. <br />
+						<br />
 						From the ashes a fire shall be woken, <br />
-                        A light from the shadows shall spring;<br />
+						A light from the shadows shall spring;
+						<br />
 						Renewed shall be blade that was broken, <br />
 						The crownless again shall be king.
 					</AnouncementBox>

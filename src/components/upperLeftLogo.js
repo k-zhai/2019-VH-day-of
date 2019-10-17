@@ -32,7 +32,7 @@ const Container = styled.div`
 		position: absolute;
 		bottom: 0;
 		left: -0em;
-		width: 97%;
+		width: 94%;
 		height: 2px;
 		border-bottom-style: dashed;
 	}
@@ -127,10 +127,10 @@ const UpperLeft = () => {
 					<LogoVandyHacksText />
 				</LogoVandyHacksTextStyle>
 				<ButtonContainer>
-					<StyledButton onClick={() => (window.location = 'https://apply.vandyhacks.org')}>
+					<StyledButton onClick={() => (window.location = '#')}>
 						Hacker Guide
 					</StyledButton>
-					<StyledButton onClick={() => (window.location = 'https://apply.vandyhacks.org')}>
+					<StyledButton onClick={() => (window.location = '#')}>
 						Sponsor Guide
 					</StyledButton>
 					<SocialMedias />

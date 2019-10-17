@@ -42,7 +42,7 @@ const LeftContainer = styled.div`
 	float: left;
 `;
 
-const DayOf = () => {
+const DayOf = ({events}) => {
 	const isMobile = useContext(isMobileContext);
 	if (isMobile) {
 		return null;
@@ -54,7 +54,7 @@ const DayOf = () => {
 					<BoxesAnimated />
 				</LeftContainer>
 				<LeftContainer>
-					<ScheduleAnimated />
+					<ScheduleAnimated events={events}/>
 					<LinkAnimated /> 
 				</LeftContainer>
 			</Container>

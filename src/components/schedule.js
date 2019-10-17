@@ -7,7 +7,7 @@ import '../../node_modules/animate.css/animate.min.css';
 
 import isMobileContext from './isMobileContext';
 import moment from 'moment';
-import { getEvents } from './getEvents';
+// import { getEvents } from './getEvents';
 
 import { Calendar, momentLocalizer } from 'react-big-calendar';
 
@@ -27,8 +27,8 @@ const fadeIn = keyframes`
 `;
 
 const Container = styled.div`
-	margin: 1em;
-	margin-bottom: 2.0em;
+	margin: 0.5em;
+	margin-bottom: 2em;
 	position: relative;
 	width: 100%;
 	justify-content: left;
@@ -93,17 +93,21 @@ const ColoredDateCellWrapper = ({ children }) =>
 
 // );
 
-const ScheduleBox = () => {
+const ScheduleBox = ({ events }) => {
 	// getEvents((events) => {
 	// 	this.setState({events})
 	//   })
-	const [events, setEvents] = useState([]);
-	useEffect(() => {
-		// Update the document title using the browser API
-		getEvents(events => setEvents(events));
-		// setEvents(getEvents);
-		// console.log(getEvents);
-		
+	// const [events, setEvents] = useState([]);
+	// useEffect(() => {
+	// 	// Update the document title using the browser API
+	// 	getEvents(events => setEvents(events));
+	// 	// setEvents(getEvents);
+	// 	// console.log(getEvents);
+
+	// });
+	events.forEach(event => {
+		event.start = new Date(event.start);
+		event.end = new Date(event.end);
 	});
 
 	const isMobile = useContext(isMobileContext);
@@ -148,12 +152,12 @@ const ScheduleBox = () => {
 		);
 };
 
-const ScheduleAnimated = () => (
+const ScheduleAnimated = ({ events }) => (
 	<InViewMonitor
 		classNameNotInView="vis-hidden"
 		classNameInView="animated fadeInRight" // fadeInLeft, or fadeInRight
 	>
-		<ScheduleBox />
+		<ScheduleBox events={events} />
 	</InViewMonitor>
 );
 
