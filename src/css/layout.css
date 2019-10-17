@@ -649,6 +649,13 @@ svg {
 .rbc-event {
 	background-color: hsl(228, 53%, 34%);
 }
+.rbc-day-slot .rbc-event {
+	border: 1px solid #ccc;
+
+}
 .rbc-event.rbc-selected {
 	background-color: #00206A;
+}
+.rbc-show-more{
+	color: hsl(228, 53%, 34%);
 }
