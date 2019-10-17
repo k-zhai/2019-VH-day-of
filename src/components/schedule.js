@@ -80,12 +80,12 @@ const BoxTitleContainer = styled.div`
 `;
 
 const localizer = momentLocalizer(moment);
-let events = [];
 
 const ColoredDateCellWrapper = ({ children }) =>
 	React.cloneElement(React.Children.only(children), {
 		style: {
-			backgroundColor: 'hsl(228, 53%, 34%)',
+			// backgroundColor: 'hsl(228, 53%, 34%)',
+			fontSize: '0.8em',
 		},
 	});
 
@@ -137,7 +137,7 @@ const ScheduleBox = ({ events }) => {
 						// views={allViews}
 						// step={60}
 						// step={30}
-						defaultView="agenda"
+						defaultView="month"
 						// views={['week', 'day', 'agenda']}
 						showMultiDayTimes
 						// max={dates.add(dates.endOf(new Date(2015, 17, 1), 'day'), -1, 'hours')}
@@ -146,6 +146,8 @@ const ScheduleBox = ({ events }) => {
 							timeSlotWrapper: ColoredDateCellWrapper,
 						}}
 						localizer={localizer}
+						toolbar= {true}
+						// length={1}
 					/>
 				</div>
 			</Container>

@@ -420,8 +420,8 @@ table {
 	padding-right: 0;
 	padding-top: 0;
 	margin-bottom: 1.45rem;
-	font-size: 1rem;
-	line-height: 1.45rem;
+	font-size: 0.8rem;
+	line-height: 1.25rem;
 	border-collapse: collapse;
 	width: 100%;
 }
@@ -639,4 +639,16 @@ body {
 
 svg {
 	pointer-events: none;
+}
+.rbc-toolbar {
+	font-size: 0.7em;
+}
+.rbc-calendar{
+	font-size: 0.8rem;
+}
+.rbc-event {
+	background-color: hsl(228, 53%, 34%);
+}
+.rbc-event.rbc-selected {
+	background-color: #00206A;
 }

@@ -7,7 +7,6 @@ import ScheduleAnimated from '../components/schedule';
 import LinkAnimated from '../components/importantLink';
 import isMobileContext from './isMobileContext';
 import { Link } from 'gatsby';
- 
 
 const fadeIn = keyframes`
 	from { 
@@ -42,7 +41,7 @@ const LeftContainer = styled.div`
 	float: left;
 `;
 
-const DayOf = ({events}) => {
+const DayOf = ({ events }) => {
 	const isMobile = useContext(isMobileContext);
 	if (isMobile) {
 		return null;
@@ -54,8 +53,8 @@ const DayOf = ({events}) => {
 					<BoxesAnimated />
 				</LeftContainer>
 				<LeftContainer>
-					<ScheduleAnimated events={events}/>
-					<LinkAnimated /> 
+					<ScheduleAnimated events={events} />
+					<LinkAnimated />
 				</LeftContainer>
 			</Container>
 		);
