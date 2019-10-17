@@ -61,15 +61,15 @@ const AnouncementBox = styled.div`
 	align-items: center; /* align vertical */
 `;
 
-// 	justify-content: space-between;
-
 const ButtonContainer = styled.div`
 	display: flex;
-	width: 100%;
+	flex-wrap: wrap;
+	flex-direction: row;
 `;
 
 const BoxTitleContainer = styled.div`
 	text-align: center;
+	flex: auto;
 `;
 
 const endEventTime = new Date('2019-11-03T23:59:59.999Z');
@@ -84,7 +84,7 @@ const Boxes = () => {
 				<ButtonContainer>
 					<BoxTitleContainer>
 						<h4>Time Remaining</h4>
-						<TextBox style={{ fontSize: '1.6em', maxWidth: '10em' }}>
+						<TextBox style={{ fontSize: '1.6em', minWidth: '10em'}}>
 							<Countdown date={endEventTime} />
 						</TextBox>
 					</BoxTitleContainer>

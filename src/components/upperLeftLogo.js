@@ -55,6 +55,8 @@ const ContainerMobile = styled.div`
 
 const LogoVandyHacksTextStyle = styled.div`
 	width: 30em;
+	max-width: 100%;
+	min-width: 80%;
 	margin-left: 0;
 	left: 0;
 	right: 0;

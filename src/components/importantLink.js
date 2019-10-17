@@ -8,6 +8,7 @@ import '../../node_modules/animate.css/animate.min.css';
 import isMobileContext from './isMobileContext';
 import StationeryPen from '../images/stationeryPen3.svg';
 import StationeryBox from '../images/stationeryBox.svg';
+import BubbleBox from '../images/speechbubble.svg';
 
 const fadeIn = keyframes`
 	from { 
@@ -74,6 +75,13 @@ const BoxTitleContainer = styled.div`
 	opacity: 1;
 	float: left;
 `;
+const SvgContainer = styled.div`
+	margin: 0;
+	position: static;
+	height: 100%;
+	opacity: 1;
+	float: left;
+`;
 
 const StyledUL = styled.ul`
 	list-style-type: none;
@@ -125,6 +133,14 @@ const PenStyle = styled.div`
 	opacity: 1;
 `;
 
+const BubbleStyle = styled.div`
+	position: relative;
+	top: 3em;
+	left: 0;
+	width: 3em;
+	opacity: 1;
+`;
+
 const PenMobileStyle = styled.div`
 	position: absolute;
 	top: -5em;
@@ -141,6 +157,8 @@ const ScheduleBox = () => {
 	} else
 		return (
 			<Container>
+				
+
 				<BoxTitleContainer>
 					<h4>Important Links</h4>
 					<StyledUL>
@@ -161,6 +179,11 @@ const ScheduleBox = () => {
 						</StyledLi>
 					</StyledUL>
 				</BoxTitleContainer>
+				{/* <SvgContainer>
+					<BubbleStyle>
+						<BubbleBox />
+					</BubbleStyle>
+				</SvgContainer> */}
 				<BoxStyle>
 					<StationeryBox />
 				</BoxStyle>

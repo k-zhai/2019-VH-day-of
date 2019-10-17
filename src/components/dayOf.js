@@ -36,7 +36,7 @@ const ContainerMobile = styled.div`
 
 const LeftContainer = styled.div`
 	position: static;
-	width: calc((100vw - 3em) / 2);
+	width: calc((100vw - 4em) / 2);
 	opacity: 1;
 	float: left;
 `;
@@ -48,7 +48,7 @@ const DayOf = ({ events }) => {
 	} else
 		return (
 			<Container>
-				<LeftContainer>
+				<LeftContainer style={{ width: 'calc((100vw - 4em) / 2)' }}>
 					<UpperLeftAnimated />
 					<BoxesAnimated />
 				</LeftContainer>
