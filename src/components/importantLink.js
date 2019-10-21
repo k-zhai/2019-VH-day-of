@@ -37,36 +37,6 @@ const ContainerMobile = styled.div`
 	animation: ${fadeIn} 1s linear;
 `;
 
-const TextBox = styled.div`
-	font-size: 0.8em;
-	color: #fff;
-	background: hsl(228, 53%, 34%);
-	margin: 1rem 1rem;
-	padding: 1em 3em;
-	border-radius: 30px;
-`;
-
-const AnouncementBox = styled.div`
-	font-size: 0.8em;
-	color: #fff;
-	background: hsl(228, 53%, 34%);
-	margin: 1rem;
-	padding: 1em 3em;
-	border-radius: 30px;
-	height: calc(100vh - 30em);
-
-	display: flex;
-	justify-content: center; /* align horizontal */
-	align-items: center; /* align vertical */
-`;
-
-// 	justify-content: space-between;
-
-const ButtonContainer = styled.div`
-	display: flex;
-	width: 100%;
-`;
-
 const BoxTitleContainer = styled.div`
 	margin: 1em 1.5em;
 	position: static;
@@ -119,25 +89,25 @@ const StyledLi = styled.li`
 
 const BoxStyle = styled.div`
 	position: absolute;
-	top: 3em;
-	left: 62%;
-	width: 5em;
+	top: 10.3em;
+	left: 77%;
+	width: 3.3em;
 	opacity: 1;
 `;
 
 const PenStyle = styled.div`
 	position: absolute;
-	top: 5em;
-	left: 76%;
-	width: 5em;
+	top: 9.3em;
+	left: 89%;
+	width: 3.4em;
 	opacity: 1;
 `;
 
 const BubbleStyle = styled.div`
 	position: relative;
-	top: 3em;
-	left: 0;
-	width: 3em;
+	top: 1em;
+	left: -3em;
+	width: 20em;
 	opacity: 1;
 `;
 
@@ -157,8 +127,6 @@ const ScheduleBox = () => {
 	} else
 		return (
 			<Container>
-				
-
 				<BoxTitleContainer>
 					<h4>Important Links</h4>
 					<StyledUL>
@@ -179,11 +147,12 @@ const ScheduleBox = () => {
 						</StyledLi>
 					</StyledUL>
 				</BoxTitleContainer>
-				{/* <SvgContainer>
+				<BoxTitleContainer style={{ width: '10em' }}>
 					<BubbleStyle>
 						<BubbleBox />
 					</BubbleStyle>
-				</SvgContainer> */}
+				</BoxTitleContainer>
+
 				<BoxStyle>
 					<StationeryBox />
 				</BoxStyle>
