@@ -40,40 +40,8 @@ const ContainerMobile = styled.div`
 	width: 100%;
 	text-align: center;
 	margin-top: 2em;
-	padding: 1em;
-	min-height: calc(101vh - 10em);
+	padding: 1.5em;
 	animation: ${fadeIn} 1s linear;
-`;
-
-const TextBox = styled.div`
-	font-size: 0.8em;
-	color: #fff;
-	background: hsl(228, 53%, 34%);
-	margin: 1rem 1rem;
-	padding: 1em 3em;
-	border-radius: 30px;
-`;
-
-// can set opcaity
-const AnouncementBox = styled.div`
-	font-size: 0.8em;
-	color: #fff;
-	background: hsl(228, 53%, 34%);
-	margin: 1rem;
-	padding: 1em 3em;
-	border-radius: 30px;
-	min-height: calc(100vh - 30em);
-
-	display: flex;
-	justify-content: center; /* align horizontal */
-	align-items: center; /* align vertical */
-`;
-
-// 	justify-content: space-between;
-
-const ButtonContainer = styled.div`
-	display: flex;
-	width: 100%;
 `;
 
 const BoxTitleContainer = styled.div`
@@ -89,10 +57,6 @@ const ColoredDateCellWrapper = ({ children }) =>
 			fontSize: '0.8em',
 		},
 	});
-
-// let MyCalendar = ({events}) => (
-
-// );
 
 const ScheduleBox = ({ events }) => {
 	// following code is used when fetching the data in client side now moved to server side
@@ -118,11 +82,10 @@ const ScheduleBox = ({ events }) => {
 					<h4>Schedule</h4>
 				</BoxTitleContainer>
 
-				<div style={{ height: '380px' }}>
+				<div>
 					<Calendar
 						events={events}
 						// step={60}
-						// step={30}
 						defaultView="agenda"
 						views={['day', 'agenda']}
 						showMultiDayTimes
@@ -132,8 +95,8 @@ const ScheduleBox = ({ events }) => {
 							timeSlotWrapper: ColoredDateCellWrapper,
 						}}
 						localizer={localizer}
-						toolbar={false}
-						// length={1}
+						toolbar={true}
+						length={1}
 					/>
 				</div>
 			</ContainerMobile>
@@ -149,12 +112,10 @@ const ScheduleBox = ({ events }) => {
 					<Calendar
 						events={events}
 						// step={60}
-						// step={30}
 						defaultView="month"
 						// views={['week', 'day', 'agenda']}
 						showMultiDayTimes
 						// max={dates.add(dates.endOf(new Date(2015, 17, 1), 'day'), -1, 'hours')}
-						// defaultDate={new Date(2015, 3, 1)}
 						components={{
 							timeSlotWrapper: ColoredDateCellWrapper,
 						}}

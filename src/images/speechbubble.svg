@@ -17,6 +17,6 @@
  </g> -->
  <g>
   <title>Layer 1</title>
-  <use transform="translate(0,0) sclale(0.6)" xlink:href="#svg_5" id="svg_6"/>
+  <use transform="translate(0,0)" xlink:href="#svg_5" id="svg_6"/>
  </g>
 </svg>

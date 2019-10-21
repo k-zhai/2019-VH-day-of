@@ -32,7 +32,6 @@ const ContainerMobile = styled.div`
 	position: relative;
 	width: 100%;
 	text-align: center;
-	margin-top: 2em;
 	min-height: calc(101vh - 10em);
 	animation: ${fadeIn} 1s linear;
 `;
@@ -41,13 +40,6 @@ const BoxTitleContainer = styled.div`
 	margin: 1em 1.5em;
 	position: static;
 	width: 12em;
-	height: 100%;
-	opacity: 1;
-	float: left;
-`;
-const SvgContainer = styled.div`
-	margin: 0;
-	position: static;
 	height: 100%;
 	opacity: 1;
 	float: left;
@@ -95,10 +87,26 @@ const BoxStyle = styled.div`
 	opacity: 1;
 `;
 
+const BoxStyleMobile = styled.div`
+	position: absolute;
+	top: 7.3em;
+	left: 73%;
+	width: 3.3em;
+	opacity: 1;
+`;
+
 const PenStyle = styled.div`
 	position: absolute;
 	top: 9.3em;
 	left: 89%;
+	width: 3.4em;
+	opacity: 1;
+`;
+
+const PenStyleMobile = styled.div`
+	position: absolute;
+	top: 1.3em;
+	left: 72%;
 	width: 3.4em;
 	opacity: 1;
 `;
@@ -111,56 +119,69 @@ const BubbleStyle = styled.div`
 	opacity: 1;
 `;
 
-const PenMobileStyle = styled.div`
-	position: absolute;
-	top: -5em;
-	left: 50%;
-	width: 2.5em;
+const BubbleStyleMobile = styled.div`
+	position: relative;
+	top: 1em;
+	left: 0em;
+	width: 20em;
 	opacity: 1;
-	transform: rotate(-80deg);
+	margin-bottom: 3em;
 `;
 
 const ScheduleBox = () => {
 	const isMobile = useContext(isMobileContext);
-	if (isMobile) {
-		return null;
-	} else
-		return (
-			<Container>
-				<BoxTitleContainer>
-					<h4>Important Links</h4>
-					<StyledUL>
-						<StyledLi>
-							<a href="#">(๑¯◡¯๑)</a>
-						</StyledLi>
-						<StyledLi>
-							<a href="#">(๑•̀ㅂ•́) ✧</a>
-						</StyledLi>
-						<StyledLi>
-							<a href="#">→_→</a>
-						</StyledLi>
-						<StyledLi>
-							<a href="#">(｡ ･･｡)</a>
-						</StyledLi>
-						<StyledLi>
-							<a href="#">( •̀ᴗ•́ )و ̑̑</a>
-						</StyledLi>
-					</StyledUL>
-				</BoxTitleContainer>
-				<BoxTitleContainer style={{ width: '10em' }}>
-					<BubbleStyle>
-						<BubbleBox />
-					</BubbleStyle>
-				</BoxTitleContainer>
 
-				<BoxStyle>
-					<StationeryBox />
-				</BoxStyle>
-				<PenStyle>
-					<StationeryPen />
-				</PenStyle>
-			</Container>
-		);
+	return (
+		<Container>
+			<BoxTitleContainer>
+				<h4>Important Links</h4>
+				<StyledUL>
+					<StyledLi>
+						<a href="#">(๑¯◡¯๑)</a>
+					</StyledLi>
+					<StyledLi>
+						<a href="#">(๑•̀ㅂ•́) ✧</a>
+					</StyledLi>
+					<StyledLi>
+						<a href="#">→_→</a>
+					</StyledLi>
+					<StyledLi>
+						<a href="#">(｡ ･･｡)</a>
+					</StyledLi>
+					<StyledLi>
+						<a href="#">( •̀ᴗ•́ )و ̑̑</a>
+					</StyledLi>
+				</StyledUL>
+			</BoxTitleContainer>
+			{{ isMobile } ? (
+				<>
+					<BubbleStyleMobile>
+						<BubbleBox />
+					</BubbleStyleMobile>
+					<BoxStyleMobile>
+						<StationeryBox />
+					</BoxStyleMobile>
+					<PenStyleMobile>
+						<StationeryPen />
+					</PenStyleMobile>
+				</>
+			) : (
+				<>
+					<BoxTitleContainer style={{ width: '10em' }}>
+						<BubbleStyle>
+							<BubbleBox />
+						</BubbleStyle>
+					</BoxTitleContainer>
+					<BoxStyle>
+						<StationeryBox />
+					</BoxStyle>
+					<PenStyle>
+						<StationeryPen />
+					</PenStyle>
+				</>
+			)}
+		</Container>
+	);
 };
 
 const LinkAnimated = () => (
