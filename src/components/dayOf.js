@@ -23,18 +23,19 @@ const Container = styled.div`
 	text-align: left;
 	min-height: calc(100vh - 10em);
 	animation: ${fadeIn} 1s linear;
+	margin: 1em;
 `;
 
 const ContainerMobile = styled.div`
 	position: relative;
 	width: 100%;
 	text-align: center;
-	margin-top: 2em;
+	margin-top: 3em;
 	min-height: calc(101vh - 10em);
 	animation: ${fadeIn} 1s linear;
 `;
 
-const LeftContainer = styled.div`
+const ColContainer = styled.div`
 	position: static;
 	width: calc((100vw - 4em) / 2);
 	opacity: 1;
@@ -44,20 +45,28 @@ const LeftContainer = styled.div`
 const DayOf = ({ events }) => {
 	const isMobile = useContext(isMobileContext);
 	if (isMobile) {
-		return null;
-	} else
+		return (
+			<ContainerMobile>
+				<UpperLeftAnimated />
+				<BoxesAnimated />
+				<ScheduleAnimated events={events} />
+				<LinkAnimated />
+			</ContainerMobile>
+		);
+	} else {
 		return (
 			<Container>
-				<LeftContainer style={{ width: 'calc((100vw - 4em) / 2)' }}>
+				<ColContainer>
 					<UpperLeftAnimated />
 					<BoxesAnimated />
-				</LeftContainer>
-				<LeftContainer>
+				</ColContainer>
+				<ColContainer>
 					<ScheduleAnimated events={events} />
 					<LinkAnimated />
-				</LeftContainer>
+				</ColContainer>
 			</Container>
 		);
+	}
 };
 
 export default DayOf;

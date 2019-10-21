@@ -12,7 +12,6 @@ import '../css/layout.css';
 
 const Container = styled.div`
 	width: 100%;
-	margin: 1em;
 `;
 
 const IndexPage = ({ pageContext: { events } })  => {
@@ -41,7 +40,7 @@ const IndexPage = ({ pageContext: { events } })  => {
 			<Container>
 				<SEO />
 				<isMobileContext.Provider value={isMobile}>
-					<Dayof events={events}/>
+					<Dayof events={events} />
 				</isMobileContext.Provider>
 				{/* <a
 					id="mlh-trust-badge"

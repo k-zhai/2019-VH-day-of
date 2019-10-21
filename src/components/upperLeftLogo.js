@@ -38,20 +38,12 @@ const Container = styled.div`
 	}
 `;
 
-const ButtonContainer = styled.div`
-	display: flex;
-	width: 100%;
-`;
-
 const ContainerMobile = styled.div`
 	position: relative;
 	width: 100%;
 	text-align: center;
-	margin-top: 2em;
-	min-height: calc(101vh - 10em);
 	animation: ${fadeIn} 1s linear;
 `;
-
 
 const LogoVandyHacksTextStyle = styled.div`
 	width: 30em;
@@ -66,7 +58,7 @@ const LogoVandyHacksTextStyle = styled.div`
 `;
 
 const LogoVandyHacksTextStyleMobile = styled.div`
-	width: auto;
+	width: calc(100vw - 3em);
 	margin: 1.5em auto 0.3em auto;
 	left: 0;
 	right: 0;
@@ -75,6 +67,13 @@ const LogoVandyHacksTextStyleMobile = styled.div`
 	fill: white;
 	fill-opacity: 1;
 	z-index: 2;
+`;
+
+const ButtonContainer = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+	justify-content: center;
 `;
 
 const StyledButton = styled.button`
@@ -121,7 +120,18 @@ const ScrollAnimateInLineSvg = ({ SvgElement }) => (
 const UpperLeft = () => {
 	const isMobile = useContext(isMobileContext);
 	if (isMobile) {
-		return null;
+		return (
+			<ContainerMobile>
+				<LogoVandyHacksTextStyleMobile>
+					<LogoVandyHacksText />
+				</LogoVandyHacksTextStyleMobile>
+				<ButtonContainer>
+					<StyledButton onClick={() => (window.location = '#')}>Hacker Guide</StyledButton>
+					<StyledButton onClick={() => (window.location = '#')}>Sponsor Guide</StyledButton>
+					<SocialMedias isMobile={isMobile} />
+				</ButtonContainer>
+			</ContainerMobile>
+		);
 	} else
 		return (
 			<Container>
@@ -129,12 +139,8 @@ const UpperLeft = () => {
 					<LogoVandyHacksText />
 				</LogoVandyHacksTextStyle>
 				<ButtonContainer>
-					<StyledButton onClick={() => (window.location = '#')}>
-						Hacker Guide
-					</StyledButton>
-					<StyledButton onClick={() => (window.location = '#')}>
-						Sponsor Guide
-					</StyledButton>
+					<StyledButton onClick={() => (window.location = '#')}>Hacker Guide</StyledButton>
+					<StyledButton onClick={() => (window.location = '#')}>Sponsor Guide</StyledButton>
 					<SocialMedias />
 				</ButtonContainer>
 			</Container>

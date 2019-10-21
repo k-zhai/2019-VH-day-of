@@ -40,6 +40,7 @@ const ContainerMobile = styled.div`
 	width: 100%;
 	text-align: center;
 	margin-top: 2em;
+	padding: 1em;
 	min-height: calc(101vh - 10em);
 	animation: ${fadeIn} 1s linear;
 `;
@@ -94,17 +95,16 @@ const ColoredDateCellWrapper = ({ children }) =>
 // );
 
 const ScheduleBox = ({ events }) => {
-	// getEvents((events) => {
-	// 	this.setState({events})
-	//   })
-	// const [events, setEvents] = useState([]);
-	// useEffect(() => {
-	// 	// Update the document title using the browser API
-	// 	getEvents(events => setEvents(events));
-	// 	// setEvents(getEvents);
-	// 	// console.log(getEvents);
-
-	// });
+	// following code is used when fetching the data in client side now moved to server side
+	/*
+	getEvents((events) => {
+		this.setState({events})
+	  })
+	const [events, setEvents] = useState([]);
+	useEffect(() => {
+		getEvents(events => setEvents(events));
+	});
+	*/
 	events.forEach(event => {
 		event.start = new Date(event.start);
 		event.end = new Date(event.end);
@@ -112,29 +112,42 @@ const ScheduleBox = ({ events }) => {
 
 	const isMobile = useContext(isMobileContext);
 	if (isMobile) {
-		return null;
-	} else
 		return (
-			<Container>
+			<ContainerMobile>
 				<BoxTitleContainer>
 					<h4>Schedule</h4>
-					{/* <AnouncementBox>
-						All that is gold does not glitter, <br /> Not all those who wander are lost; <br />
-						The old that is strong does not wither, <br />
-						Deep roots are not reached by the frost. <br />
-						<br />
-						From the ashes a fire shall be woken, <br />
-						A light from the shadows shall spring;
-						<br />
-						Renewed shall be blade that was broken, <br />
-						The crownless again shall be king.
-					</AnouncementBox> */}
 				</BoxTitleContainer>
 
 				<div style={{ height: '380px' }}>
 					<Calendar
 						events={events}
-						// views={allViews}
+						// step={60}
+						// step={30}
+						defaultView="agenda"
+						views={['day', 'agenda']}
+						showMultiDayTimes
+						// max={dates.add(dates.endOf(new Date(2015, 17, 1), 'day'), -1, 'hours')}
+						// defaultDate={new Date(2015, 3, 1)}
+						components={{
+							timeSlotWrapper: ColoredDateCellWrapper,
+						}}
+						localizer={localizer}
+						toolbar={false}
+						// length={1}
+					/>
+				</div>
+			</ContainerMobile>
+		);
+	} else
+		return (
+			<Container>
+				<BoxTitleContainer>
+					<h4>Schedule</h4>
+				</BoxTitleContainer>
+
+				<div style={{ height: '380px' }}>
+					<Calendar
+						events={events}
 						// step={60}
 						// step={30}
 						defaultView="month"
@@ -146,7 +159,7 @@ const ScheduleBox = ({ events }) => {
 							timeSlotWrapper: ColoredDateCellWrapper,
 						}}
 						localizer={localizer}
-						toolbar= {true}
+						toolbar={true}
 						// length={1}
 					/>
 				</div>
