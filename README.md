@@ -20,7 +20,7 @@ const events = [
 
 The **styling** of calendar is in the last portion of `layout.css`. (Explicitly identify classes name and change styling there accordingly, which is fast but really bad and inconsistent style.)
 
-Currently, the data is fetching from the public Candyhacks calendar. (Since there's my own google api key in the environment to query for data, I put the fetching data code in server side). The source code for fetching the data is in **`gatsby-node.js`**. (Since it's in the server side, has to rebuild if any changes.) 
+Currently, the data is fetching from the public Vandyhacks calendar. (Since there's my own google api key in the environment to query for data, I put the fetching data code in server side). The source code for fetching the data is in **`gatsby-node.js`**. (Since it's in the server side, has to rebuild if any changes.) 
 
 
 ### Announcement Part
@@ -30,4 +30,4 @@ Currently it's just plain text holder in the text-box.
 
 ### Deploy
 
-It's not deployed to any places right now.
+It's not deployed to any platform right now.
