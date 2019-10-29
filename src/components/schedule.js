@@ -69,6 +69,8 @@ const ScheduleBox = ({ events }) => {
 		getEvents(events => setEvents(events));
 	});
 	*/
+	events = [];
+
 	events.forEach(event => {
 		event.start = new Date(event.start);
 		event.end = new Date(event.end);

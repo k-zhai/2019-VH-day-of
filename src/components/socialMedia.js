@@ -80,7 +80,7 @@ const changeTheme = () => {
 
 const ToggleIcon = () => (
 	<svg
-		class="theme-toggler"
+		className="theme-toggler"
 		width="24"
 		height="24"
 		viewBox="0 0 48 48"

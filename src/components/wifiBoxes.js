@@ -46,14 +46,14 @@ const TextBox = styled.div`
 	}
 `;
 
-const AnouncementBox = styled.div`
+const AnnouncementBox = styled.div`
 	font-size: 0.8em;
 	color: #fff;
 	background: hsl(228, 53%, 34%);
 	margin: 1rem;
 	padding: 1em 3em;
 	border-radius: 30px;
-	min-height: calc(100vh - 30.5em);
+	min-height: calc(100vh - 32em);
 
 	display: flex;
 	justify-content: ; /* align horizontal */
@@ -86,8 +86,10 @@ const Boxes = () => {
 			<ButtonContainer>
 				<BoxTitleContainer>
 					<h4>Time Remaining</h4>
-					<TextBox style={{ fontSize: '1.6em', minWidth: '10em' }}>
-						<Countdown date={endEventTime} />
+					<TextBox style={{ fontSize: '1.6em', minWidth: '11.7em' }}>
+						<div style={{ width: '50%', whiteSpace: 'nowrap', textAlign: 'left' }}>
+							<Countdown date={endEventTime} />
+						</div>
 					</TextBox>
 				</BoxTitleContainer>
 				<BoxTitleContainer>
@@ -100,8 +102,8 @@ const Boxes = () => {
 				</BoxTitleContainer>
 			</ButtonContainer>
 			<BoxTitleContainer>
-				<h4>Anouncement</h4>
-				<AnouncementBox>
+				<h4>Announcements</h4>
+				<AnnouncementBox>
 					All that is gold does not glitter, <br /> Not all those who wander are lost; <br />
 					The old that is strong does not wither, <br />
 					Deep roots are not reached by the frost. <br />
@@ -111,7 +113,7 @@ const Boxes = () => {
 					<br />
 					Renewed shall be blade that was broken, <br />
 					The crownless again shall be king.
-				</AnouncementBox>
+				</AnnouncementBox>
 			</BoxTitleContainer>
 		</Container>
 	);
